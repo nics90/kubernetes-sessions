@@ -1,0 +1,27 @@
+kubectl cluster-info
+kubectl get pods
+kubectl get namespaces
+kubectl get pods -n 
+kubectl get pods -A
+kubectl run nginx1 --image=nginx
+kubectl logs pod/podname 
+kubectl describe pod/podname
+minikube dashboard &
+kubectl get all -n kubernetes-dashboard
+kubectl edit service/kubernetes-dashboard -n kubernetes-dashboard
+kubectl get svc -A
+kubectl create deployment hello-nginx --image=nginx --port=80
+kubectl get pods
+kubectl expose deployment hello-nginx --type=NodePort
+kubectl get services
+kubectl scale --replicas=3 deployment/hello-nginx
+kubectl scale --replicas=8 deployment/hello-nginx
+kubectl get replicaset
+kubectl delete replicaset hello-nginx-c56599c4d
+kubectl get deployments -A
+kubectl get deployments
+kubectl delete deployments hello-nginx
+kubectl delete --all pods --namespace=default
+   
+   
+   

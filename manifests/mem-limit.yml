@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: jenkins1-memory
+spec:
+  containers:
+  - name: jenkins1-container
+    image: jenkins/jenkins
+    resources:
+      limits:
+        memory: "400Mi"
+      requests:
+        memory: "200Mi"
