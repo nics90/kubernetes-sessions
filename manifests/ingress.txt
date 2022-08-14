@@ -1,0 +1,13 @@
+minikube addons enable ingress
+kubectl get pods -n kube-system
+kubectl create deployment streaming-app --image=gcr.io/google-samples/hello-app:1.0
+kubectl expose deployment streaming-app --type=NodePort --port=8080
+kubectl get service streaming-app
+minikube service streaming-app --url
+
+
+kubectl create deployment authentication-app --image=gcr.io/google-samples/hello-app:2.0 
+kubectl expose deployment authentication-app --type=NodePort --port=8080
+kubectl get service authentication-app
+minikube service authentication-app --url
+
