@@ -8,7 +8,7 @@ kubectl logs pod/podname
 kubectl describe pod/podname
 minikube dashboard &
 kubectl get all -n kubernetes-dashboard
-kubectl edit service/kubernetes-dashboard -n kubernetes-dashboard
+kubectl edit service/kubernetes-dashboard -n kubernetes-dashboard # change ClusterIP to NodePort
 kubectl get svc -A
 kubectl create deployment hello-nginx --image=nginx --port=80
 kubectl get pods
