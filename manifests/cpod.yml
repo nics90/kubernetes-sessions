@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: configmap-pod
+spec:
+  containers:
+    - name: demo
+      image: alpine
+      command: ["sleep", "3600"]
+      env:
+        # Define the environment variable
+        - name: USERNAME # Notice that the case is different here
+                                     # from the key name in the ConfigMap.
+          valueFrom:
+            configMapKeyRef:
+              name: configmap-data          # The ConfigMap this value comes from.
+              key: username # The key to fetch.
+        - name: ADDRESS
+          valueFrom:
+            configMapKeyRef:
+              name: configmap-data
+              key: address
+      volumeMounts:
+      - name: config
+        mountPath: "/config"
+        readOnly: true
+  volumes:
+    # You set volumes at the Pod level, then mount them into containers inside that Pod
+    - name: config
+      configMap:
+        # Provide the name of the ConfigMap you want to mount.
+        name: configmap-data
+        # An array of keys from the ConfigMap to create as files
+        items:
+        - key: "configuration-data"
+          path: "configuration-data"

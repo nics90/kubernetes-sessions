@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configmap-data
+data:
+  # property-like keys; each key maps to a simple value
+  username: "john"
+  address: "Canada"
+
+  # file-like keys
+  configuration-data: |
+    database=appdb
+    server=dbserver    
+
