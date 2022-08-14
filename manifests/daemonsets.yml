@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: daemonset-pods
+spec:
+  selector:
+    matchLabels:
+      app: daemonset-pods
+  template:
+    metadata:
+      labels:
+        app: daemonset-pods
+    spec:
+      containers:
+      - name: daemonset-container
+        image: httpd:latest
+        ports:
+          - containerPort: 80
+
