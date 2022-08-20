@@ -11,3 +11,6 @@ kubectl expose deployment authentication-app --type=NodePort --port=8080
 kubectl get service authentication-app
 minikube service authentication-app --url
 
+
+# kubectl apply -f ingress.yml
+# kubectl get ingress
